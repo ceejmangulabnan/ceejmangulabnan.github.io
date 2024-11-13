@@ -1,7 +1,10 @@
+import Home from './components/Home'
+
+
 const App = () => {
   return (
-    <div className='text-lg font-bold'>
-      hello
+    <div>
+      <Home />
     </div>
   )
 }
