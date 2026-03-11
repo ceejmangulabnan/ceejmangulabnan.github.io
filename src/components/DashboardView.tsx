@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import { ProfileCard } from "./ProfileCard";
-// import { ProjectsGrid } from './ProjectsGrid';
+import { ProjectsGrid } from './ProjectsGrid';
 // import { ExperienceTimeline } from './ExperienceTimeline';
 // import { SkillsPanel } from './SkillsPanel';
 import { ContactBar } from "./ContactBar";
@@ -49,17 +49,26 @@ export function DashboardView() {
       </div>
 
       <div className="max-w-400 mx-auto relative z-10">
-        <div className="mb-4">
-          <ContactBar />
-        </div>
         {/* Top Row - Profile + Skills */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
-          <ProfileCard
-            onHover={(isHovered) =>
-              setHoveredSection(isHovered ? "profile" : null)
-            }
-          />
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 mb-4">
+          {/* <div className="col-span-1 h-100">
+            <ContactBar />
+          </div> */}
+          <div className="col-span-2">
+            <ProfileCard
+              onHover={(isHovered) =>
+                setHoveredSection(isHovered ? "profile" : null)
+              }
+            />
+
+          </div>
+
+          <div className="lg:col-span-3">
+            <ProjectsGrid
+              onHover={(isHovered) =>
+                setHoveredSection(isHovered ? "projects" : null)
+              }
+            />
             {/* <SkillsPanel */}
             {/*   onHover={(isHovered) => */}
             {/*     setHoveredSection(isHovered ? "skills" : null) */}
@@ -70,11 +79,7 @@ export function DashboardView() {
 
         {/* Middle Row - Projects Showcase */}
         <div className="mb-4">
-          {/* <ProjectsGrid */}
-          {/*   onHover={(isHovered) => */}
-          {/*     setHoveredSection(isHovered ? "projects" : null) */}
-          {/*   } */}
-          {/* /> */}
+
         </div>
 
         {/* Bottom Row - Experience + Contact */}
