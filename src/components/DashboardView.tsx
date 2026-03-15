@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import { ProfileCard } from "./ProfileCard";
-import { ProjectsGrid } from './ProjectsGrid';
+import { ProjectsGrid } from "./ProjectsGrid";
 // import { ExperienceTimeline } from './ExperienceTimeline';
 // import { SkillsPanel } from './SkillsPanel';
 import { ContactBar } from "./ContactBar";
@@ -11,12 +11,12 @@ import { LoadingScreen } from "./LoadingScreen";
 
 export function DashboardView() {
   const [hoveredSection, setHoveredSection] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   if (isLoading) {
     return (
       <AnimatePresence>
-        <LoadingScreen onLoadComplete={() => setIsLoading(false)} />
+        {/* <LoadingScreen onLoadComplete={() => setIsLoading(false)} /> */}
       </AnimatePresence>
     );
   }
@@ -60,7 +60,6 @@ export function DashboardView() {
                 setHoveredSection(isHovered ? "profile" : null)
               }
             />
-
           </div>
 
           <div className="lg:col-span-3">
@@ -78,9 +77,7 @@ export function DashboardView() {
         </div>
 
         {/* Middle Row - Projects Showcase */}
-        <div className="mb-4">
-
-        </div>
+        <div className="mb-4"></div>
 
         {/* Bottom Row - Experience + Contact */}
         <div className="grid grid-cols-1 gap-4">

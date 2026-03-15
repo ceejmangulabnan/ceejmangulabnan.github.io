@@ -1,5 +1,5 @@
-import { motion } from 'motion/react';
-import { ExternalLink, Github, Star, TrendingUp } from 'lucide-react';
+import { motion } from "motion/react";
+import { ExternalLink, Github, Star, TrendingUp } from "lucide-react";
 
 interface ProjectsGridProps {
   onHover: (isHovered: boolean) => void;
@@ -8,60 +8,83 @@ interface ProjectsGridProps {
 export function ProjectsGrid({ onHover }: ProjectsGridProps) {
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack solution with real-time inventory and payments',
-      tags: ['React', 'Node.js', 'PostgreSQL'],
+      title: "E-Commerce Platform",
+      description: "Full-stack solution with real-time inventory and payments",
+      tags: ["React", "Node.js", "PostgreSQL"],
       stars: 245,
-      status: 'Live',
-      link: '#',
-      github: '#',
+      status: "Live",
+      link: "#",
+      github: "#",
     },
     {
-      title: 'Task Manager Pro',
-      description: 'Collaborative tool with real-time team updates',
-      tags: ['TypeScript', 'Firebase', 'Tailwind'],
+      title: "Task Manager Pro",
+      description: "Collaborative tool with real-time team updates",
+      tags: ["TypeScript", "Firebase", "Tailwind"],
       stars: 189,
-      status: 'Active',
-      link: '#',
-      github: '#',
+      status: "Active",
+      link: "#",
+      github: "#",
     },
     {
-      title: 'Weather Dashboard',
-      description: 'Beautiful visualization with forecasts and maps',
-      tags: ['React', 'D3.js', 'API'],
+      title: "Weather Dashboard",
+      description: "Beautiful visualization with forecasts and maps",
+      tags: ["React", "D3.js", "API"],
       stars: 312,
-      status: 'Live',
-      link: '#',
-      github: '#',
+      status: "Live",
+      link: "#",
+      github: "#",
     },
     {
-      title: 'Game Stats Tracker',
-      description: 'Track gaming achievements with detailed analytics',
-      tags: ['Python', 'MongoDB', 'Chart.js'],
+      title: "Game Stats Tracker",
+      description: "Track gaming achievements with detailed analytics",
+      tags: ["Python", "MongoDB", "Chart.js"],
       stars: 156,
-      status: 'Beta',
-      link: '#',
-      github: '#',
+      status: "Beta",
+      link: "#",
+      github: "#",
     },
     {
-      title: 'AI Chatbot Assistant',
-      description: 'Smart chatbot with natural language processing',
-      tags: ['React', 'OpenAI', 'Node.js'],
+      title: "AI Chatbot Assistant",
+      description: "Smart chatbot with natural language processing",
+      tags: ["React", "OpenAI", "Node.js"],
       stars: 423,
-      status: 'Live',
-      link: '#',
-      github: '#',
+      status: "Live",
+      link: "#",
+      github: "#",
     },
     {
-      title: 'Portfolio Builder',
-      description: 'No-code tool for creating developer portfolios',
-      tags: ['Next.js', 'Tailwind', 'MDX'],
+      title: "Portfolio Builder",
+      description: "No-code tool for creating developer portfolios",
+      tags: ["Next.js", "Tailwind", "MDX"],
       stars: 267,
-      status: 'Active',
-      link: '#',
-      github: '#',
+      status: "Active",
+      link: "#",
+      github: "#",
     },
   ];
+
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.4,
+      },
+    },
+  };
+
+  const item = {
+    initial: { opacity: 0, scale: 0.8 },
+    animate: (index: number) => ({
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delay: index * 0.3,
+        duration: 0.1,
+        ease: "linear",
+      },
+    }),
+  };
 
   return (
     <motion.div
@@ -82,14 +105,20 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[calc(100vh-12rem)] overflow-y-auto pr-2 custom-scrollbar">
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[calc(100vh-12rem)] overflow-y-auto pr-2 custom-scrollbar"
+        // variants={container}
+        // initial="hidden"
+        // animate="show"
+      >
         {projects.map((project, index) => (
           <motion.div
             key={project.title}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.1 + index * 0.05 }}
-            whileHover={{ y: -4 }}
+            variants={item}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            custom={index}
             className="bg-[#0a0a0a] border border-[#2a2a2a] rounded-lg p-4 hover:border-[#ff6b35] transition-all group"
           >
             <div className="flex items-start justify-between mb-3">
@@ -142,7 +171,7 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
