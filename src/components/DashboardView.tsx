@@ -62,7 +62,7 @@ export function DashboardView() {
             />
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="col-span-2">
             <ProjectsGrid
               onHover={(isHovered) =>
                 setHoveredSection(isHovered ? "projects" : null)

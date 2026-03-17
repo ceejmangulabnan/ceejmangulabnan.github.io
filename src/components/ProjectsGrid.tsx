@@ -1,11 +1,26 @@
-import { motion } from "motion/react";
+import { motion, Variants, useScroll } from "motion/react";
 import { ExternalLink, Github, Star, TrendingUp } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { useScrollOverflowMask } from "@/hooks/use-scroll-overflow-mask";
+import Button from "./Button";
 
 interface ProjectsGridProps {
   onHover: (isHovered: boolean) => void;
 }
 
 export function ProjectsGrid({ onHover }: ProjectsGridProps) {
+  const projectGridRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    container: projectGridRef,
+  });
+  const maskImage = useScrollOverflowMask(scrollYProgress)
+
+  console.log("Scroll Y Progress", scrollYProgress)
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.onChange((latest) => {
+      console.log("Scroll Y Progress Changed:", latest);
+    })
+  }, [scrollYProgress]);
   const projects = [
     {
       title: "E-Commerce Platform",
@@ -63,17 +78,7 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
     },
   ];
 
-  const container = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.4,
-      },
-    },
-  };
-
-  const item = {
+  const item: Variants = {
     initial: { opacity: 0, scale: 0.8 },
     animate: (index: number) => ({
       opacity: 1,
@@ -106,10 +111,9 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
       </div>
 
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[calc(100vh-12rem)] overflow-y-auto pr-2 custom-scrollbar"
-        // variants={container}
-        // initial="hidden"
-        // animate="show"
+        className="grid grid-cols-1 gap-4 max-h-[calc(100vh-12rem)] overflow-y-auto pr-2 no-scrollbar"
+        style={{ maskImage }}
+        ref={projectGridRef}
       >
         {projects.map((project, index) => (
           <motion.div
@@ -171,6 +175,8 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
             </div>
           </motion.div>
         ))}
+
+        <Button></Button>
       </motion.div>
     </motion.div>
   );
