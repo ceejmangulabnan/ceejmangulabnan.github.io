@@ -1,8 +1,10 @@
-import { motion, Variants, useScroll } from "motion/react";
-import { ExternalLink, Github, Star, TrendingUp } from "lucide-react";
-import { useEffect, useRef } from "react";
+"use client"
+
+import { motion, Variants, useScroll, useMotionValueEvent } from "motion/react";
+import { ExternalLink, Github, ChevronDown, Star, TrendingUp } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { useScrollOverflowMask } from "@/hooks/use-scroll-overflow-mask";
-import Button from "./Button";
+import { Button } from "./ui/button";
 
 interface ProjectsGridProps {
   onHover: (isHovered: boolean) => void;
@@ -14,6 +16,11 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
     container: projectGridRef,
   });
   const maskImage = useScrollOverflowMask(scrollYProgress)
+  const [isScrolledToBottom, setIsScrolledToBottom] = useState(false)
+
+  useMotionValueEvent(scrollYProgress, "change", (value) => {
+    setIsScrolledToBottom(value < 0.9)
+  })
 
   console.log("Scroll Y Progress", scrollYProgress)
   useEffect(() => {
@@ -91,6 +98,15 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
     }),
   };
 
+  const scrollToBottom = () => {
+    if (projectGridRef.current) {
+      projectGridRef.current.scrollTo({
+        top: projectGridRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -98,7 +114,7 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
       transition={{ delay: 0.2 }}
       onHoverStart={() => onHover(true)}
       onHoverEnd={() => onHover(false)}
-      className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg p-6 hover:border-[#ff6b35] transition-all h-full"
+      className="relative bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg p-6 hover:border-[#ff6b35] transition-all h-full"
     >
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl text-[#f5f5f5]">
@@ -114,6 +130,7 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
         className="grid grid-cols-1 gap-4 max-h-[calc(100vh-12rem)] overflow-y-auto pr-2 no-scrollbar"
         style={{ maskImage }}
         ref={projectGridRef}
+
       >
         {projects.map((project, index) => (
           <motion.div
@@ -175,9 +192,11 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
             </div>
           </motion.div>
         ))}
-
-        <Button></Button>
       </motion.div>
+
+      <Button onClick={scrollToBottom} className={`size-10 shadow-lg/50 shadow-neutral-800 absolute bottom-10 left-1/2 -translate-x-1/2 transition-opacity hover:bg-[#1a1a1a]/90 rounded-full ${isScrolledToBottom ? "opacity-100" : "opacity-0"}`}>
+        <ChevronDown className="size-8" />
+      </Button>
     </motion.div>
   );
 }
