@@ -1,10 +1,23 @@
-"use client"
+"use client";
 
-import { motion, Variants, useScroll, useMotionValueEvent } from "motion/react";
-import { ExternalLink, Github, ChevronDown, Star, TrendingUp } from "lucide-react";
+import {
+  motion,
+  Variants,
+  useScroll,
+  useMotionValueEvent,
+  easeOut,
+} from "motion/react";
+import {
+  ExternalLink,
+  Github,
+  ChevronDown,
+  Star,
+  TrendingUp,
+} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useScrollOverflowMask } from "@/hooks/use-scroll-overflow-mask";
 import { Button } from "./ui/button";
+import useRepo from "@/hooks/use-repo";
 
 interface ProjectsGridProps {
   onHover: (isHovered: boolean) => void;
@@ -15,18 +28,21 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
   const { scrollYProgress } = useScroll({
     container: projectGridRef,
   });
-  const maskImage = useScrollOverflowMask(scrollYProgress)
-  const [isScrolledToBottom, setIsScrolledToBottom] = useState(false)
+  const maskImage = useScrollOverflowMask(scrollYProgress);
+  const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
+
+  const { repoData } = useRepo();
+  console.log("Repo Query Result:", repoData);
 
   useMotionValueEvent(scrollYProgress, "change", (value) => {
-    setIsScrolledToBottom(value < 0.9)
-  })
+    setIsScrolledToBottom(value < 0.9);
+  });
 
-  console.log("Scroll Y Progress", scrollYProgress)
+  console.log("Scroll Y Progress", scrollYProgress);
   useEffect(() => {
     const unsubscribe = scrollYProgress.onChange((latest) => {
       console.log("Scroll Y Progress Changed:", latest);
-    })
+    });
   }, [scrollYProgress]);
   const projects = [
     {
@@ -87,12 +103,12 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
 
   const item: Variants = {
     initial: { opacity: 0, scale: 0.8 },
-    animate: (index: number) => ({
+    animate: () => ({
       opacity: 1,
       scale: 1,
       transition: {
-        delay: index * 0.3,
-        duration: 0.1,
+        // delay: index * 0.1,
+        duration: 0.05,
         ease: "linear",
       },
     }),
@@ -105,7 +121,7 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
         behavior: "smooth",
       });
     }
-  }
+  };
 
   return (
     <motion.div
@@ -127,76 +143,81 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
       </div>
 
       <motion.div
-        className="grid grid-cols-1 gap-4 max-h-[calc(100vh-12rem)] overflow-y-auto pr-2 no-scrollbar"
+        className="py-2 grid grid-cols-1 gap-4 max-h-[calc(100vh-12rem)] overflow-y-auto pr-2 no-scrollbar"
         style={{ maskImage }}
         ref={projectGridRef}
-
       >
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.title}
-            variants={item}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            custom={index}
-            className="bg-[#0a0a0a] border border-[#2a2a2a] rounded-lg p-4 hover:border-[#ff6b35] transition-all group"
-          >
-            <div className="flex items-start justify-between mb-3">
-              <div className="flex-1">
-                <h3 className="text-[#f5f5f5] mb-1 group-hover:text-[#ff6b35] transition-colors">
-                  {project.title}
-                </h3>
-                <div className="flex items-center gap-2">
-                  <span className="text-xs bg-[#2a2a2a] text-[#ff6b35] px-2 py-0.5 rounded">
-                    {project.status}
-                  </span>
-                  <div className="flex items-center gap-1 text-[#9a9a9a]">
-                    <Star className="w-3 h-3 fill-current" />
-                    <span className="text-xs">{project.stars}</span>
+        {repoData.map((repo, index) => {
+          return (
+            <motion.div
+              key={repo.data.id}
+              variants={item}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02, transition: { ease: "anticipate" } }}
+              className="bg-[#0a0a0a] border border-[#2a2a2a] rounded-lg p-4 hover:border-[#ff6b35] transition-all group mx-2"
+            >
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex-1">
+                  <h3 className="text-[#f5f5f5] mb-1 group-hover:text-[#ff6b35] transition-colors">
+                    {repo.data?.name ?? "Project Title"}
+                  </h3>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs bg-[#2a2a2a] text-[#ff6b35] px-2 py-0.5 rounded">
+                      {/* {project.status} */}
+                    </span>
+                    <div className="flex items-center gap-1 text-[#9a9a9a]">
+                      <Star className="w-3 h-3 fill-current" />
+                      <span className="text-xs">{repo.data.stars}</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <p className="text-sm text-[#9a9a9a] mb-3 line-clamp-2">
-              {project.description}
-            </p>
+              <p className="text-sm text-[#9a9a9a] mb-3 line-clamp-2">
+                {repo.data.description}
+              </p>
 
-            <div className="flex flex-wrap gap-1 mb-3">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs bg-[#2a2a2a] text-[#9a9a9a] px-2 py-0.5 rounded"
+              <div className="flex flex-wrap gap-1 mb-3">
+                {repo.data?.tags.map((tag: string) => (
+                  <span
+                    key={tag}
+                    className="text-xs bg-[#2a2a2a] text-[#9a9a9a] px-2 py-0.5 rounded"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex gap-3">
+                <a
+                  href={project.link}
+                  className="flex items-center gap-1 text-xs text-[#9a9a9a] hover:text-[#ff6b35] transition-colors"
                 >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex gap-3">
-              <a
-                href={project.link}
-                className="flex items-center gap-1 text-xs text-[#9a9a9a] hover:text-[#ff6b35] transition-colors"
-              >
-                <ExternalLink className="w-3 h-3" />
-                Demo
-              </a>
-              <a
-                href={project.github}
-                className="flex items-center gap-1 text-xs text-[#9a9a9a] hover:text-[#ff6b35] transition-colors"
-              >
-                <Github className="w-3 h-3" />
-                Code
-              </a>
-            </div>
-          </motion.div>
-        ))}
+                  <ExternalLink className="w-3 h-3" />
+                  Demo
+                </a>
+                <a
+                  href={project.github}
+                  className="flex items-center gap-1 text-xs text-[#9a9a9a] hover:text-[#ff6b35] transition-colors"
+                >
+                  <Github className="w-3 h-3" />
+                  Code
+                </a>
+              </div>
+            </motion.div>
+          );
+        })}
       </motion.div>
 
-      <Button onClick={scrollToBottom} className={`size-10 shadow-lg/50 shadow-neutral-800 absolute bottom-10 left-1/2 -translate-x-1/2 transition-opacity hover:bg-[#1a1a1a]/90 rounded-full ${isScrolledToBottom ? "opacity-100" : "opacity-0"}`}>
+      <Button
+        onClick={scrollToBottom}
+        className={`size-10 shadow-lg/50 shadow-neutral-800 absolute bottom-10 left-1/2 -translate-x-1/2 transition-opacity hover:bg-[#1a1a1a]/90 rounded-full ${isScrolledToBottom ? "opacity-100" : "opacity-0"}`}
+      >
         <ChevronDown className="size-8" />
       </Button>
     </motion.div>
   );
 }
+

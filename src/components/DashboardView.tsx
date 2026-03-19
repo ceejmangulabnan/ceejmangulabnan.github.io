@@ -26,7 +26,7 @@ export function DashboardView() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen p-4 md:p-6 lg:p-8"
+      className="min-h-screen p-4 md:p-6 lg:p-8 bg-black"
     >
       {/* Animated background elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -68,16 +68,8 @@ export function DashboardView() {
                 setHoveredSection(isHovered ? "projects" : null)
               }
             />
-            {/* <SkillsPanel */}
-            {/*   onHover={(isHovered) => */}
-            {/*     setHoveredSection(isHovered ? "skills" : null) */}
-            {/*   } */}
-            {/* /> */}
           </div>
         </div>
-
-        {/* Middle Row - Projects Showcase */}
-        <div className="mb-4"></div>
 
         {/* Bottom Row - Experience + Contact */}
         <div className="grid grid-cols-1 gap-4">
