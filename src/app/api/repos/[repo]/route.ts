@@ -12,7 +12,10 @@ export async function GET(
         }
     )
     if (!response.ok) {
-        throw new Error('Network response was not ok')
+        return Response.json(
+            { error: 'Failed to fetch repository data' },
+            { status: response.status }
+        )
     } else {
         const data = await response.json()
         return Response.json(data)
