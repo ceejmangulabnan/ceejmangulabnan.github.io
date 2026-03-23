@@ -24,6 +24,7 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
     })
     const maskImage = useScrollOverflowMask(scrollYProgress)
     const [isScrolledToBottom, setIsScrolledToBottom] = useState(false)
+    console.log('Mask Image Applied', maskImage)
 
     const { repoData } = useRepo()
     console.log('Repo Query Result:', repoData)
@@ -32,12 +33,12 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
         setIsScrolledToBottom(value < 0.9)
     })
 
-    console.log('Scroll Y Progress', scrollYProgress)
-    useEffect(() => {
-        const unsubscribe = scrollYProgress.onChange((latest) => {
-            console.log('Scroll Y Progress Changed:', latest)
-        })
-    }, [scrollYProgress])
+    // console.log('Scroll Y Progress', scrollYProgress)
+    // useEffect(() => {
+    //     const unsubscribe = scrollYProgress.onChange((latest) => {
+    //         console.log('Scroll Y Progress Changed:', latest)
+    //     })
+    // }, [scrollYProgress])
     const projects = [
         {
             title: 'E-Commerce Platform',
@@ -125,7 +126,7 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
             transition={{ delay: 0.2 }}
             onHoverStart={() => onHover(true)}
             onHoverEnd={() => onHover(false)}
-            className="relative bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg p-6 hover:border-[#ff6b35] transition-all h-full"
+            className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg p-6 hover:border-[#ff6b35] transition-all h-full"
         >
             <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl text-[#f5f5f5]">
@@ -137,87 +138,91 @@ export function ProjectsGrid({ onHover }: ProjectsGridProps) {
                 </div>
             </div>
 
-            <motion.div
-                className="py-2 grid grid-cols-1 gap-4 max-h-[calc(100vh-12rem)] overflow-y-auto pr-2 no-scrollbar"
-                style={{ maskImage }}
-                ref={projectGridRef}
-            >
-                {!repoData.pending &&
-                    repoData.data.map((repo, index) => {
-                        return (
-                            <motion.div
-                                key={repo.id}
-                                variants={item}
-                                initial="initial"
-                                whileInView="animate"
-                                viewport={{ once: true }}
-                                whileHover={{
-                                    scale: 1.02,
-                                    transition: { ease: 'anticipate' },
-                                }}
-                                className="bg-[#0a0a0a] border border-[#2a2a2a] rounded-lg p-4 hover:border-[#ff6b35] transition-all group mx-2"
-                            >
-                                <div className="flex items-start justify-between mb-3">
-                                    <div className="flex-1">
-                                        <h3 className="text-[#f5f5f5] mb-1 group-hover:text-[#ff6b35] transition-colors">
-                                            {repo.name ?? 'Project Title'}
-                                        </h3>
-                                        <div className="flex items-center gap-2">
-                                            <span className="text-xs bg-[#2a2a2a] text-[#ff6b35] px-2 py-0.5 rounded">
-                                                {/* {project.status} */}
-                                            </span>
-                                            <div className="flex items-center gap-1 text-[#9a9a9a]">
-                                                <Star className="w-3 h-3 fill-current" />
-                                                <span className="text-xs">
-                                                    {repo.stargazers_count}
+            {/* Wrapper for scroll to bottom button  */}
+            <div className="relative">
+                {/* Scrollable Projects Container */}
+                <motion.div
+                    className="py-2 grid grid-cols-1 gap-4 overflow-y-auto pr-2 no-scrollbar"
+                    style={{ maskImage }}
+                    ref={projectGridRef}
+                >
+                    {!repoData.pending &&
+                        repoData.data.map((repo, index) => {
+                            return (
+                                <motion.div
+                                    key={repo.id}
+                                    variants={item}
+                                    initial="initial"
+                                    whileInView="animate"
+                                    viewport={{ once: true }}
+                                    whileHover={{
+                                        scale: 1.02,
+                                        transition: { ease: 'anticipate' },
+                                    }}
+                                    className="bg-[#0a0a0a] border border-[#2a2a2a] rounded-lg p-4 hover:border-[#ff6b35] transition-all group mx-2"
+                                >
+                                    <div className="flex items-start justify-between mb-3">
+                                        <div className="flex-1">
+                                            <h3 className="text-[#f5f5f5] mb-1 group-hover:text-[#ff6b35] transition-colors">
+                                                {repo.name ?? 'Project Title'}
+                                            </h3>
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-xs bg-[#2a2a2a] text-[#ff6b35] px-2 py-0.5 rounded">
+                                                    {/* {project.status} */}
                                                 </span>
+                                                <div className="flex items-center gap-1 text-[#9a9a9a]">
+                                                    <Star className="w-3 h-3 fill-current" />
+                                                    <span className="text-xs">
+                                                        {repo.stargazers_count}
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <p className="text-sm text-[#9a9a9a] mb-3 line-clamp-2">
-                                    {repo.description}
-                                </p>
+                                    <p className="text-sm text-[#9a9a9a] mb-3 line-clamp-2">
+                                        {repo.description}
+                                    </p>
 
-                                <div className="flex flex-wrap gap-1 mb-3">
-                                    {/* {repo.tags.map((tag: string) => ( */}
-                                    {/*     <span */}
-                                    {/*         key={tag} */}
-                                    {/*         className="text-xs bg-[#2a2a2a] text-[#9a9a9a] px-2 py-0.5 rounded" */}
-                                    {/*     > */}
-                                    {/*         {tag} */}
-                                    {/*     </span> */}
-                                    {/* ))} */}
-                                </div>
+                                    <div className="flex flex-wrap gap-1 mb-3">
+                                        {/* {repo.tags.map((tag: string) => ( */}
+                                        {/*     <span */}
+                                        {/*         key={tag} */}
+                                        {/*         className="text-xs bg-[#2a2a2a] text-[#9a9a9a] px-2 py-0.5 rounded" */}
+                                        {/*     > */}
+                                        {/*         {tag} */}
+                                        {/*     </span> */}
+                                        {/* ))} */}
+                                    </div>
 
-                                <div className="flex gap-3">
-                                    <a
-                                        href={repo.html_url}
-                                        className="flex items-center gap-1 text-xs text-[#9a9a9a] hover:text-[#ff6b35] transition-colors"
-                                    >
-                                        <ExternalLink className="w-3 h-3" />
-                                        Demo
-                                    </a>
-                                    <a
-                                        href={repo.html_url}
-                                        className="flex items-center gap-1 text-xs text-[#9a9a9a] hover:text-[#ff6b35] transition-colors"
-                                    >
-                                        <Github className="w-3 h-3" />
-                                        Code
-                                    </a>
-                                </div>
-                            </motion.div>
-                        )
-                    })}
-            </motion.div>
+                                    <div className="flex gap-3">
+                                        <a
+                                            href={repo.html_url}
+                                            className="flex items-center gap-1 text-xs text-[#9a9a9a] hover:text-[#ff6b35] transition-colors"
+                                        >
+                                            <ExternalLink className="w-3 h-3" />
+                                            Demo
+                                        </a>
+                                        <a
+                                            href={repo.html_url}
+                                            className="flex items-center gap-1 text-xs text-[#9a9a9a] hover:text-[#ff6b35] transition-colors"
+                                        >
+                                            <Github className="w-3 h-3" />
+                                            Code
+                                        </a>
+                                    </div>
+                                </motion.div>
+                            )
+                        })}
+                </motion.div>
 
-            <Button
-                onClick={scrollToBottom}
-                className={`size-10 shadow-lg/50 shadow-neutral-800 absolute bottom-10 left-1/2 -translate-x-1/2 transition-opacity hover:bg-[#1a1a1a]/90 rounded-full ${isScrolledToBottom ? 'opacity-100' : 'opacity-0'}`}
-            >
-                <ChevronDown className="size-8" />
-            </Button>
+                <Button
+                    onClick={scrollToBottom}
+                    className={`size-10 shadow-lg/50 shadow-neutral-800 absolute bottom-0 left-1/2 -translate-x-1/2 transition-opacity hover:bg-[#1a1a1a]/90 rounded-full ${isScrolledToBottom ? 'opacity-100' : 'opacity-0'}`}
+                >
+                    <ChevronDown className="size-8" />
+                </Button>
+            </div>
         </motion.div>
     )
 }
