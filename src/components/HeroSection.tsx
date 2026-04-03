@@ -21,7 +21,7 @@ const HeroSection = () => {
                         Name LastName
                     </span>
                 </h1>
-                <p className="my-4 text-sm font-mono">
+                <p className="my-4 mb-8 text-sm font-mono">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Aenean imperdiet mattis nisl vitae euismod. Nulla eu nulla
                     euismod, pretium lectus eget, rhoncus enim. Donec non
