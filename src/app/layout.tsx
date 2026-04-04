@@ -8,6 +8,7 @@ import {
 } from 'next/font/google'
 import './globals.css'
 import TanstackQueryProvider from '@/providers/tanstack-query-provider'
+import { ThemeProvider } from '@/providers/theme-provider'
 
 // const geistSans = Geist({
 //     variable: '--font-geist-sans',
@@ -49,7 +50,14 @@ export default function RootLayout({
                 className={`${playfairDisplay.variable} ${chivoMono.variable} ${chivoSans.variable} antialiased`}
                 suppressHydrationWarning
             >
-                <TanstackQueryProvider>{children}</TanstackQueryProvider>
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    <TanstackQueryProvider>{children}</TanstackQueryProvider>
+                </ThemeProvider>
             </body>
         </html>
     )
