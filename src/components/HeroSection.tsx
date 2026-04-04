@@ -35,13 +35,13 @@ const HeroSection = () => {
                 <div className="flex font-sans gap-4">
                     <Button
                         size={'lg'}
-                        className="bg-soft-cream text-blue ring-1 ring-blue-strong hover:bg-blue hover:text-cream"
+                        className="bg-soft-cream text-blue inset-ring-1 ring-blue-strong hover:bg-blue hover:text-cream"
                     >
                         CTA BUTTON
                     </Button>
                     <Button
                         size={'lg'}
-                        className=" bg-blue text-cream ring-1 ring-blue hover:bg-blue-strong"
+                        className="bg-blue text-cream inset-ring-1 ring-blue hover:bg-blue-strong"
                     >
                         CTA BUTTON
                     </Button>
