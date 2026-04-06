@@ -14,7 +14,7 @@ const HeroSection = () => {
     return (
         <section
             id="#hero-section"
-            className="flex gap-8 font-sans rounded-sm bg-soft-cream text-blue dark:text-soft-blue dark:bg-navy-soft p-6 shadow-md"
+            className="flex gap-8 font-sans rounded-sm bg-soft-cream text-blue dark:text-soft-blue dark:bg-navy-soft p-6 shadow-md shadow-sky dark:shadow-none dark:border-2"
         >
             <div>
                 <h1 className="text-xl font-mono text-blue-strong dark:text-soft-blue">
@@ -26,7 +26,7 @@ const HeroSection = () => {
                         Name LastName
                     </span>
                 </h1>
-                <p className="my-4 mb-8 text-sm font-mono">
+                <p className="my-4 mb-8 text-sm font-mono dark:text-sky">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Aenean imperdiet mattis nisl vitae euismod. Nulla eu nulla
                     euismod, pretium lectus eget, rhoncus enim. Donec non
@@ -46,24 +46,24 @@ const HeroSection = () => {
                     </Button>
                     <Button
                         size={'lg'}
-                        className="bg-blue text-cream dark:bg-blue dark:text-navy inset-ring-1 ring-blue hover:bg-blue-strong"
+                        className="bg-blue text-cream dark:bg-soft-blue dark:text-navy-soft inset-ring-1 dark:inset-ring-0 ring-blue hover:bg-blue-strong"
                     >
                         CTA BUTTON
                     </Button>
                 </div>
             </div>
-            <nav className="flex flex-col gap-4">
+            <nav className="flex flex-col gap-4 dark:text-sky">
                 <a href="https://github.com/ceejmangulabnan" target="_blank">
-                    <IoLogoGithub className="size-10" />
+                    <IoLogoGithub className="size-10 transform transition-transform duration-300 ease-out hover:scale-110 hover:-translate-y-1" />
                 </a>
                 <a
                     href="https://www.linkedin.com/in/cheljee-mangulabnan/"
                     target="_blank"
                 >
-                    <FaLinkedin className="size-10" />
+                    <FaLinkedin className="size-10 transform transition-transform duration-300 ease-out hover:scale-110 hover:-translate-y-1" />
                 </a>
                 <a href="mailto:cheljee.mangulabnan@gmail.com">
-                    <MdEmail className="size-10" />
+                    <MdEmail className="size-10 transform transition-transform duration-300 ease-out hover:scale-110 hover:-translate-y-1" />
                 </a>
             </nav>
         </section>
