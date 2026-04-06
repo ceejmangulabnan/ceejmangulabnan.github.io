@@ -1,22 +1,27 @@
+'use client'
+
 import { Button } from './ui/button'
 import { IoLogoGithub } from 'react-icons/io'
 import { FaLinkedin } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
+import { useTheme } from 'next-themes'
 
 const HeroSection = () => {
+    const { theme } = useTheme()
+    const textStroke = {
+        WebkitTextStroke: '1px var(--color-blue-strong)',
+    }
     return (
         <section
             id="#hero-section"
-            className="flex gap-8 font-sans rounded-sm bg-soft-cream text-blue p-6 shadow-md"
+            className="flex gap-8 font-sans rounded-sm bg-soft-cream text-blue dark:text-soft-blue dark:bg-navy-soft p-6 shadow-md"
         >
             <div>
-                <h1 className="text-xl font-mono text-blue-strong">
-                    Hi, I'm
+                <h1 className="text-xl font-mono text-blue-strong dark:text-soft-blue">
+                    hi, i'm
                     <span
-                        className="mt-2 block font-serif font-bold text-blue text-6xl text-shadow-md"
-                        style={{
-                            WebkitTextStroke: '1px var(--color-blue-strong)',
-                        }}
+                        className="mt-2 block font-serif font-bold text-blue dark:text-soft-blue text-6xl text-shadow-md"
+                        style={theme === 'light' ? textStroke : undefined}
                     >
                         Name LastName
                     </span>
@@ -35,13 +40,13 @@ const HeroSection = () => {
                 <div className="flex font-sans gap-4">
                     <Button
                         size={'lg'}
-                        className="bg-soft-cream text-blue inset-ring-1 ring-blue-strong hover:bg-blue hover:text-cream"
+                        className="bg-soft-cream text-blue dark:bg-navy dark:text-cream dark:inset-ring-0 inset-ring-1 ring-blue-strong hover:bg-blue hover:text-cream"
                     >
                         CTA BUTTON
                     </Button>
                     <Button
                         size={'lg'}
-                        className="bg-blue text-cream inset-ring-1 ring-blue hover:bg-blue-strong"
+                        className="bg-blue text-cream dark:bg-blue dark:text-navy inset-ring-1 ring-blue hover:bg-blue-strong"
                     >
                         CTA BUTTON
                     </Button>
