@@ -50,7 +50,12 @@ const ThemeToggle = ({ dropdownItem }: Props) => {
     }
 
     return (
-        <Button variant="outline" size="icon" onClick={handleTheme}>
+        <Button
+            variant="outline"
+            size="icon"
+            onClick={handleTheme}
+            className="hover:text-blue-strong"
+        >
             <Sun
                 className={`${theme === 'dark' ? 'hidden' : ''} h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0`}
             />

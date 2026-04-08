@@ -42,13 +42,13 @@ const HeroSection = () => {
                         size={'lg'}
                         className="bg-soft-cream text-blue dark:bg-navy dark:text-cream dark:inset-ring-0 inset-ring-1 ring-blue-strong hover:bg-blue hover:text-cream"
                     >
-                        CTA BUTTON
+                        SEE MY WORK
                     </Button>
                     <Button
                         size={'lg'}
                         className="bg-blue text-cream dark:bg-soft-blue dark:text-navy-soft inset-ring-1 dark:inset-ring-0 ring-blue hover:bg-blue-strong"
                     >
-                        CTA BUTTON
+                        WORK WITH ME
                     </Button>
                 </div>
             </div>
