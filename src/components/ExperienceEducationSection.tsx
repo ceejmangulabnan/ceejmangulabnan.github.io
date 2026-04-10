@@ -7,7 +7,7 @@ const ExperienceEducationSection = () => {
 
     return (
         <section className="py-10 w-full">
-            <h2 className="mb-4 font-mono text-blue font-bold text-xl">
+            <h2 className="mb-4 font-mono text-blue font-bold text-base sm:text-lg md:text-xl">
                 // experience
             </h2>
             <div className="border-2 border-blue-strong rounded-md">
@@ -39,22 +39,22 @@ const ExperienceEducationSection = () => {
                 {/* tab content */}
                 <div>
                     {activeTab === 'work' && (
-                        <div className="flex flex-col gap-4 rounded-md px-8 py-8 bg-soft-cream text-blue-strong dark:bg-navy dark:text-blue-strong">
+                        <div className="flex flex-col gap-4 rounded-md px-4 sm:px-6 md:px-8 py-6 sm:py-8 bg-soft-cream text-blue-strong dark:bg-navy-soft dark:text-blue-strong">
                             <div className="flex gap-2">
-                                <div className="h-16 w-16 shrink-0 mt-2 mr-4 bg-blue-strong rounded-full"></div>
+                                <div className="h-12 w-12 sm:h-16 sm:w-16 shrink-0 mt-1 sm:mt-2 mr-2 sm:mr-4 bg-blue dark:bg-navy rounded-full"></div>
                                 {/* text container */}
                                 <div>
-                                    <span className="text-xs text-navy-soft italic font-light">
+                                    <span className="text-xs text-navy-soft dark:text-baby-blue italic font-light">
                                         Sept 2025 - Ongoing
                                     </span>
-                                    <h3 className="text-blue-strong font-bold font-mono text-xl">
+                                    <h3 className="text-blue-strong dark:text-sky font-bold font-mono text-base sm:text-lg md:text-xl">
                                         MIS Student Assistant | St. Nicolas
                                         College of Business and Technology
                                     </h3>
-                                    <span className="text-sm text-navy-soft font-extralight">
+                                    <span className="text-xs sm:text-sm text-navy-soft dark:text-baby-blue font-extralight">
                                         On-site
                                     </span>
-                                    <ul className="list-disc font-mono text-sm">
+                                    <ul className="list-disc font-mono text-xs sm:text-sm dark:text-blue">
                                         <li>
                                             Provided hardware and network
                                             troubleshooting support for faculty
@@ -87,27 +87,27 @@ const ExperienceEducationSection = () => {
                             </div>
 
                             <div className="flex gap-2">
-                                <div className="h-16 w-16 shrink-0 mt-2 mr-4 bg-blue-strong rounded-full"></div>
+                                <div className="h-12 w-12 sm:h-16 sm:w-16 shrink-0 mt-1 sm:mt-2 mr-2 sm:mr-4 bg-blue dark:bg-navy rounded-full"></div>
                                 {/* text container */}
                                 <div>
-                                    <span className="text-xs text-navy-soft italic font-extralight">
+                                    <span className="text-xs text-navy-soft dark:text-baby-blue italic font-extralight">
                                         Jan 2025 - Aug 2025
                                     </span>
-                                    <h3 className="text-blue-strong font-bold font-mono text-xl">
+                                    <h3 className="text-blue-strong dark:text-sky font-bold font-mono text-base sm:text-lg md:text-xl">
                                         Software Developer | Trendly Digital
                                         Solutions
                                     </h3>
-                                    <span className="text-sm text-navy-soft font-extralight">
+                                    <span className="text-xs sm:text-sm text-navy-soft dark:text-baby-blue font-extralight">
                                         Remote
                                     </span>
-                                    <ul className="list-disc font-mono text-sm">
+                                    <ul className="list-disc font-mono text-xs sm:text-sm dark:text-blue">
                                         <li>
                                             Built and maintained full-stack web
                                             applications using Next.js 15 (App
                                             Router) integrated with AWS
                                             serverless backend services (Lambda,
-                                            API Gateway,  DynamoDB, S3),
-                                            ensuring responsive, user-friendly
+                                            API Gateway, DynamoDB, S3), ensuring
+                                            responsive, user-friendly
                                             experiences across desktop and
                                             mobile.
                                         </li>
@@ -134,35 +134,38 @@ const ExperienceEducationSection = () => {
                     )}
 
                     {activeTab === 'education' && (
-                        <div className="flex flex-col gap-4 rounded-md px-8 py-8 bg-soft-cream text-blue-strong dark:bg-navy dark:text-blue-strong">
+                        <div className="flex flex-col gap-4 rounded-md px-4 sm:px-6 md:px-8 py-6 sm:py-8 bg-soft-cream text-blue-strong dark:bg-navy-soft dark:text-blue-strong">
                             <div className="flex gap-2">
-                                <div className="h-16 w-16 shrink-0 mt-2 mr-4 bg-blue-strong rounded-full"></div>
+                                <div className="h-12 w-12 sm:h-16 sm:w-16 shrink-0 mt-1 mr-2 sm:mr-4 bg-blue dark:bg-navy rounded-full"></div>
                                 {/* text container */}
                                 <div>
-                                    <p className="text-sm text-navy-soft italic font-extralight">
-                                        Jan 2025 - May 2027
+                                    <p className="text-xs text-navy-soft dark:text-baby-blue italic font-light">
+                                        Jan 2025 - May 2027{' '}
+                                        <span className="text-blue-strong dark:text-blue not-italic font-medium ml-1">
+                                            (Expected)
+                                        </span>
                                     </p>
-                                    <h3 className="text-blue-strong font-bold font-mono text-xl">
+                                    <h3 className="text-blue-strong dark:text-sky font-bold font-mono text-base sm:text-lg md:text-xl">
                                         St. Nicolas College of Business and
                                         Technology
                                     </h3>
-                                    <span className="text-blue-strong">
+                                    <span className="text-xs sm:text-sm text-blue-strong dark:text-blue">
                                         Bachelor of Science in Computer Science
                                     </span>
                                 </div>
                             </div>
 
                             <div className="flex gap-2">
-                                <div className="h-16 w-16 shrink-0 mt-2 mr-4 bg-blue-strong rounded-full"></div>
+                                <div className="h-12 w-12 sm:h-16 sm:w-16 shrink-0 mt-1 mr-2 sm:mr-4 bg-blue dark:bg-navy rounded-full"></div>
                                 {/* text container */}
                                 <div>
-                                    <p className="text-sm text-navy-soft italic font-extralight">
+                                    <p className="text-xs text-navy-soft dark:text-baby-blue italic font-light">
                                         Aug 2021 - May 2022
                                     </p>
-                                    <h3 className="text-blue-strong font-bold font-mono text-xl">
+                                    <h3 className="text-blue-strong dark:text-sky font-bold font-mono text-base sm:text-lg md:text-xl">
                                         University of Santo Tomas
                                     </h3>
-                                    <span className="text-blue-strong">
+                                    <span className="text-xs sm:text-sm text-blue-strong dark:text-blue">
                                         Bachelor of Science in Computer Science
                                     </span>
                                 </div>
