@@ -16,7 +16,7 @@ const techStack = [
 const TechStackSection = () => {
     return (
         <section className="py-10 w-full">
-            <h2 className="mb-4 font-mono text-blue font-bold text-base sm:text-lg md:text-xl">
+            <h2 className="mb-4 font-mono text-blue dark:text-sky font-bold text-base sm:text-lg md:text-xl">
                 // tech i use
             </h2>
             <div className="grid gap-3 sm:gap-4 [grid-template-columns:repeat(auto-fit,minmax(80px,1fr))] sm:[grid-template-columns:repeat(auto-fit,minmax(100px,1fr))]">

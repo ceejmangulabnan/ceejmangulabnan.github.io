@@ -7,12 +7,12 @@ const ExperienceEducationSection = () => {
 
     return (
         <section className="py-10 w-full">
-            <h2 className="mb-4 font-mono text-blue font-bold text-base sm:text-lg md:text-xl">
+            <h2 className="mb-4 font-mono text-blue dark:text-sky font-bold text-base sm:text-lg md:text-xl">
                 // experience
             </h2>
-            <div className="border-2 border-blue-strong rounded-md">
+            <div className="border-2 rounded-md">
                 {/* tab buttons */}
-                <div className="flex justify-between border-b-2 border-b-blue-strong">
+                <div className="flex justify-between border-b-2">
                     <button
                         onClick={() => setActiveTab('work')}
                         className={`w-full px-3 py-1 rounded-tl-sm font-bold font-mono focus:outline-none focus:ring-0 active:outline-none ${
@@ -39,7 +39,7 @@ const ExperienceEducationSection = () => {
                 {/* tab content */}
                 <div>
                     {activeTab === 'work' && (
-                        <div className="flex flex-col gap-4 rounded-md px-4 sm:px-6 md:px-8 py-6 sm:py-8 bg-soft-cream text-blue-strong dark:bg-navy-soft dark:text-blue-strong">
+                        <div className="flex flex-col gap-4 rounded-b-sm px-4 sm:px-6 md:px-8 py-6 sm:py-8 bg-soft-cream text-blue-strong dark:bg-navy-soft dark:text-blue-strong">
                             <div className="flex gap-2">
                                 <div className="h-12 w-12 sm:h-16 sm:w-16 shrink-0 mt-1 sm:mt-2 mr-2 sm:mr-4 bg-blue dark:bg-navy rounded-full"></div>
                                 {/* text container */}
@@ -134,7 +134,7 @@ const ExperienceEducationSection = () => {
                     )}
 
                     {activeTab === 'education' && (
-                        <div className="flex flex-col gap-4 rounded-md px-4 sm:px-6 md:px-8 py-6 sm:py-8 bg-soft-cream text-blue-strong dark:bg-navy-soft dark:text-blue-strong">
+                        <div className="flex flex-col gap-4 rounded-b-sm px-4 sm:px-6 md:px-8 py-6 sm:py-8 bg-soft-cream text-blue-strong dark:bg-navy-soft dark:text-blue-strong">
                             <div className="flex gap-2">
                                 <div className="h-12 w-12 sm:h-16 sm:w-16 shrink-0 mt-1 mr-2 sm:mr-4 bg-blue dark:bg-navy rounded-full"></div>
                                 {/* text container */}
