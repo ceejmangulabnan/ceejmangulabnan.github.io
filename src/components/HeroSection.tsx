@@ -37,19 +37,15 @@ const HeroSection = () => {
                                     : undefined
                             }
                         >
-                            Guest Mangulabnan
+                            Ceej Mangulabnan
                         </span>
                     </h1>
-                    <p className="my-2 sm:my-4 mb-4 sm:mb-8 text-xs sm:text-sm font-mono dark:text-sky">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Aenean imperdiet mattis nisl vitae euismod. Nulla eu
-                        nulla euismod, pretium lectus eget, rhoncus enim. Donec
-                        non maximus est, sit amet aliquam neque. Mauris sit amet
-                        tincidunt leo. Pellentesque nec dui sed nibh viverra
-                        consectetur. Etiam pellentesque ullamcorper nunc at
-                        mollis. Donec mollis leo sit amet risus laoreet, ac
-                        tincidunt ante eleifend. Nunc malesuada viverra sem, eu
-                        accumsan tellus volutpat in.
+                    <p className="my-2 sm:my-4 mb-4 sm:mb-8 text-xs sm:text-sm font-mono dark:text-sky text-shadow">
+                        I'm a full-stack developer based in Pampanga,
+                        Philippines, with a focus on Next.js. I'm currently a
+                        3rd-year Computer Science student. I build web
+                        applications that solve real problems and deliver
+                        practical value.
                     </p>
                 </div>
 

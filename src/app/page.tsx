@@ -1,6 +1,7 @@
 import ExperienceEducationSection from '@/components/ExperienceEducationSection'
 import HeroSection from '@/components/HeroSection'
 import Navbar from '@/components/Navbar'
+import ProjectsSection from '@/components/ProjectsSection'
 import TechStackSection from '@/components/TechStackSection'
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
             <HeroSection />
             <TechStackSection />
             <ExperienceEducationSection />
+            <ProjectsSection />
         </div>
     )
 }
