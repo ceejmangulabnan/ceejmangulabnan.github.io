@@ -5,12 +5,21 @@ import { IoLogoGithub } from 'react-icons/io'
 import { FaLinkedin } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import { useTheme } from 'next-themes'
+import { useState, useEffect } from 'react'
 
 const HeroSection = () => {
     const { theme } = useTheme()
+    const [mounted, setMounted] = useState(false)
+
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setMounted(true)
+    }, [])
+
     const textStroke = {
         WebkitTextStroke: '1px var(--color-blue-strong)',
     }
+
     return (
         <section
             id="#hero-section"
@@ -19,12 +28,16 @@ const HeroSection = () => {
             <div className="flex-1 flex gap-8">
                 <div className="flex-1">
                     <h1 className="text-sm sm:text-base md:text-lg lg:text-xl font-mono text-blue-strong dark:text-soft-blue">
-                        hi, i'm
+                        hi, i&apos;m
                         <span
                             className="mt-2 block font-serif font-bold text-blue dark:text-soft-blue text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-shadow-md"
-                            style={theme === 'light' ? textStroke : undefined}
+                            style={
+                                mounted && theme === 'light'
+                                    ? textStroke
+                                    : undefined
+                            }
                         >
-                            Name LastName
+                            Guest Mangulabnan
                         </span>
                     </h1>
                     <p className="my-2 sm:my-4 mb-4 sm:mb-8 text-xs sm:text-sm font-mono dark:text-sky">
