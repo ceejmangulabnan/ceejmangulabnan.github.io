@@ -9,16 +9,7 @@ import {
 import './globals.css'
 import TanstackQueryProvider from '@/providers/tanstack-query-provider'
 import { ThemeProvider } from '@/providers/theme-provider'
-
-// const geistSans = Geist({
-//     variable: '--font-geist-sans',
-//     subsets: ['latin'],
-// })
-//
-// const geistMono = Geist_Mono({
-//     variable: '--font-geist-mono',
-//     subsets: ['latin'],
-// })
+import { ToasterWithTheme } from '@/components/ToasterWithTheme'
 
 const playfairDisplay = Playfair_Display({
     variable: '--font-playfair-display-serif',
@@ -57,6 +48,7 @@ export default function RootLayout({
                     disableTransitionOnChange
                 >
                     <TanstackQueryProvider>{children}</TanstackQueryProvider>
+                    <ToasterWithTheme />
                 </ThemeProvider>
             </body>
         </html>
