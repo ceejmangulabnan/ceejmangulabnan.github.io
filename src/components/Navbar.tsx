@@ -3,7 +3,7 @@ import ThemeToggle from './ThemeToggle'
 const Navbar = () => {
     return (
         <header className="w-full font-mono">
-            <nav className="flex items-center justify-center sm:justify-start w-full text-xs md:text-base font-mono text-blue-strong py-6 mb-10">
+            <nav className="flex items-center justify-center sm:justify-start w-full text-xs md:text-base font-mono text-blue-strong dark:text-sky py-6 mb-10">
                 <ul className="flex gap-4 md:gap-8 dark:text-sky">
                     <li className="hover:underline underline-offset-4 decoration-2">
                         <a href="#home">// home</a>

@@ -123,14 +123,14 @@ const ProjectsSection = () => {
                             <div className="flex gap-4 pt-2 border-t border-border dark:border-border/20">
                                 <a
                                     href={project.link}
-                                    className="flex items-center gap-1 text-xs text-muted-foreground hover:text-blue dark:hover:text-sky transition-colors"
+                                    className="flex items-center gap-1 text-xs text-muted-foreground hover:text-blue-strong dark:hover:text-sky transition-colors"
                                 >
                                     <ExternalLink className="w-3 h-3" />
                                     Demo
                                 </a>
                                 <a
                                     href={project.github}
-                                    className="flex items-center gap-1 text-xs text-muted-foreground hover:text-blue dark:hover:text-sky transition-colors"
+                                    className="flex items-center gap-1 text-xs text-muted-foreground hover:text-blue-strong dark:hover:text-sky transition-colors"
                                 >
                                     <Github className="w-3 h-3" />
                                     Code

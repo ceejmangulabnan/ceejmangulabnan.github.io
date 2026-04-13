@@ -17,8 +17,8 @@ const ExperienceEducationSection = () => {
                         onClick={() => setActiveTab('work')}
                         className={`w-full px-3 py-1 rounded-tl-sm font-bold font-mono focus:outline-none focus:ring-0 active:outline-none ${
                             activeTab === 'work'
-                                ? 'bg-blue text-white dark:bg-soft-blue dark:text-navy-soft'
-                                : 'text-blue'
+                                ? 'bg-blue text-cream dark:bg-soft-blue dark:text-navy-soft'
+                                : 'border-blue text-blue'
                         }`}
                     >
                         work
@@ -47,14 +47,14 @@ const ExperienceEducationSection = () => {
                                     <span className="text-xs text-navy-soft dark:text-baby-blue italic font-light">
                                         Sept 2025 - Ongoing
                                     </span>
-                                    <h3 className="text-blue-strong dark:text-sky font-bold font-mono text-base sm:text-lg md:text-xl">
+                                    <h3 className="text-blue-strong dark:text-sky font-bold font-serif text-base sm:text-lg md:text-xl">
                                         MIS Student Assistant | St. Nicolas
                                         College of Business and Technology
                                     </h3>
                                     <span className="text-xs sm:text-sm text-navy-soft dark:text-baby-blue font-extralight">
                                         On-site
                                     </span>
-                                    <ul className="list-disc font-mono text-xs sm:text-sm dark:text-blue">
+                                    <ul className="list-disc font-mono tracking-tight text-xs sm:text-sm dark:text-blue">
                                         <li>
                                             Provided hardware and network
                                             troubleshooting support for faculty
@@ -100,7 +100,7 @@ const ExperienceEducationSection = () => {
                                     <span className="text-xs sm:text-sm text-navy-soft dark:text-baby-blue font-extralight">
                                         Remote
                                     </span>
-                                    <ul className="list-disc font-mono text-xs sm:text-sm dark:text-blue">
+                                    <ul className="list-disc font-mono tracking-tight text-xs sm:text-sm dark:text-baby-blue">
                                         <li>
                                             Built and maintained full-stack web
                                             applications using Next.js 15 (App

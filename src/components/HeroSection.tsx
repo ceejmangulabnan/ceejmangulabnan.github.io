@@ -23,7 +23,7 @@ const HeroSection = () => {
     return (
         <section
             id="#hero-section"
-            className="flex flex-col gap-2 sm:gap-1 font-sans rounded-sm bg-soft-cream text-blue dark:text-soft-blue dark:bg-navy-soft p-4 sm:p-6 shadow-md shadow-sky dark:shadow-none dark:border-2"
+            className="flex flex-col gap-2 sm:gap-1 font-sans rounded-sm bg-soft-cream text-blue dark:text-soft-blue dark:bg-navy-soft p-4 sm:p-6 shadow-md dark:shadow-none dark:border-2"
         >
             <div className="flex-1 flex gap-8">
                 <div className="flex-1">
@@ -53,16 +53,21 @@ const HeroSection = () => {
                     <a
                         href="https://github.com/ceejmangulabnan"
                         target="_blank"
+                        className="hover:text-blue-strong dark:hover:text-sky transition-colors"
                     >
                         <IoLogoGithub className="size-6 sm:size-10 transform transition-transform duration-300 ease-out hover:scale-110 hover:-translate-y-1" />
                     </a>
                     <a
                         href="https://www.linkedin.com/in/cheljee-mangulabnan/"
                         target="_blank"
+                        className="hover:text-blue-strong dark:hover:text-sky transition-colors"
                     >
                         <FaLinkedin className="size-6 sm:size-10 transform transition-transform duration-300 ease-out hover:scale-110 hover:-translate-y-1" />
                     </a>
-                    <a href="mailto:cheljee.mangulabnan@gmail.com">
+                    <a
+                        href="mailto:cheljee.mangulabnan@gmail.com"
+                        className="hover:text-blue-strong dark:hover:text-sky transition-colors"
+                    >
                         <MdEmail className="size-6 sm:size-10 transform transition-transform duration-300 ease-out hover:scale-110 hover:-translate-y-1" />
                     </a>
                 </nav>
