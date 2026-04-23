@@ -44,17 +44,17 @@ const ExperienceEducationSection = () => {
                                 <div className="h-12 w-12 sm:h-16 sm:w-16 shrink-0 mt-1 sm:mt-2 mr-2 sm:mr-4 bg-blue dark:bg-navy rounded-full"></div>
                                 {/* text container */}
                                 <div>
-                                    <span className="text-xs text-navy-soft dark:text-baby-blue italic font-light">
+                                    <span className="text-xs text-navy-soft dark:text-blue italic font-light">
                                         Sept 2025 - Ongoing
                                     </span>
-                                    <h3 className="text-blue-strong dark:text-sky font-bold font-serif text-base sm:text-lg md:text-xl">
+                                    <h3 className="text-blue-strong dark:text-sky font-extrabold font-serif text-base sm:text-lg md:text-xl">
                                         MIS Student Assistant | St. Nicolas
                                         College of Business and Technology
                                     </h3>
-                                    <span className="text-xs sm:text-sm text-navy-soft dark:text-baby-blue font-extralight">
+                                    <span className="text-xs sm:text-sm text-navy-soft dark:text-blue font-extralight">
                                         On-site
                                     </span>
-                                    <ul className="list-disc font-mono tracking-tight text-xs sm:text-sm dark:text-blue">
+                                    <ul className="list-disc font-mono tracking-tight text-xs sm:text-sm  dark:text-sky">
                                         <li>
                                             Provided hardware and network
                                             troubleshooting support for faculty
@@ -90,17 +90,17 @@ const ExperienceEducationSection = () => {
                                 <div className="h-12 w-12 sm:h-16 sm:w-16 shrink-0 mt-1 sm:mt-2 mr-2 sm:mr-4 bg-blue dark:bg-navy rounded-full"></div>
                                 {/* text container */}
                                 <div>
-                                    <span className="text-xs text-navy-soft dark:text-baby-blue italic font-extralight">
+                                    <span className="text-xs text-navy-soft dark:text-blue italic font-light">
                                         Jan 2025 - Aug 2025
                                     </span>
-                                    <h3 className="text-blue-strong dark:text-sky font-bold font-mono text-base sm:text-lg md:text-xl">
+                                    <h3 className="text-blue-strong dark:text-sky font-extrabold font-serif text-base sm:text-lg md:text-xl">
                                         Software Developer | Trendly Digital
                                         Solutions
                                     </h3>
-                                    <span className="text-xs sm:text-sm text-navy-soft dark:text-baby-blue font-extralight">
+                                    <span className="text-xs sm:text-sm text-navy-soft dark:text-blue font-extralight">
                                         Remote
                                     </span>
-                                    <ul className="list-disc font-mono tracking-tight text-xs sm:text-sm dark:text-baby-blue">
+                                    <ul className="list-disc font-mono tracking-tight text-xs sm:text-sm  dark:text-sky">
                                         <li>
                                             Built and maintained full-stack web
                                             applications using Next.js 15 (App
@@ -145,11 +145,11 @@ const ExperienceEducationSection = () => {
                                             (Expected)
                                         </span>
                                     </p>
-                                    <h3 className="text-blue-strong dark:text-sky font-bold font-mono text-base sm:text-lg md:text-xl">
+                                    <h3 className="text-blue-strong dark:text-sky font-bold font-serif text-base sm:text-lg md:text-xl">
                                         St. Nicolas College of Business and
                                         Technology
                                     </h3>
-                                    <span className="text-xs sm:text-sm text-blue-strong dark:text-blue">
+                                    <span className="text-xs sm:text-sm text-blue">
                                         Bachelor of Science in Computer Science
                                     </span>
                                 </div>
@@ -162,10 +162,10 @@ const ExperienceEducationSection = () => {
                                     <p className="text-xs text-navy-soft dark:text-baby-blue italic font-light">
                                         Aug 2021 - May 2022
                                     </p>
-                                    <h3 className="text-blue-strong dark:text-sky font-bold font-mono text-base sm:text-lg md:text-xl">
+                                    <h3 className="text-blue-strong dark:text-sky font-bold font-serif text-base sm:text-lg md:text-xl">
                                         University of Santo Tomas
                                     </h3>
-                                    <span className="text-xs sm:text-sm text-blue-strong dark:text-blue">
+                                    <span className="text-xs sm:text-sm text-blue">
                                         Bachelor of Science in Computer Science
                                     </span>
                                 </div>

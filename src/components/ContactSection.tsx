@@ -63,7 +63,7 @@ const ContactSection = () => {
                                     href={`mailto:${EMAIL}`}
                                     className="flex items-center gap-3 text-blue dark:text-sky hover:text-blue-strong dark:hover:text-sky transition-colors group"
                                 >
-                                    <div className="p-2 bg-soft-cream dark:bg-navy-soft rounded-sm shadow-md dark:shadow-none">
+                                    <div className="p-2 bg-soft-cream dark:bg-navy rounded-sm shadow-md dark:shadow-none dark:border-2">
                                         <MdEmail className="size-5" />
                                     </div>
                                     <span className="text-sm font-mono group-hover:underline">
