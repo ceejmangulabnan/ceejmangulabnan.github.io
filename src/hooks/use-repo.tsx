@@ -1,9 +1,11 @@
 import { useQueries } from '@tanstack/react-query'
 
 const useRepo = () => {
-    const token = process.env.GITHUB_TOKEN
+    const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN
     if (token) {
         console.log('Token Exists')
+    } else {
+        console.log('GitHub Token Not Found!')
     }
 
     const repos = [
@@ -25,7 +27,13 @@ const useRepo = () => {
             queryKey: ['repo', repo],
             queryFn: async () => {
                 const response = await fetch(
-                    `${process.env.NEXT_PUBLIC_BASE_URL}/api/repos/${repo}`
+                    `https://api.github.com/repos/ceejmangulabnan/${repo}`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                            'Content-Type': 'application/json',
+                        },
+                    }
                 )
                 if (!response.ok) {
                     throw new Error('Network response was not ok')
