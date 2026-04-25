@@ -1,15 +1,10 @@
 import type { Metadata } from 'next'
-import {
-    Geist,
-    Geist_Mono,
-    Playfair_Display,
-    Chivo,
-    Chivo_Mono,
-} from 'next/font/google'
+import { Playfair_Display, Chivo, Chivo_Mono } from 'next/font/google'
 import './globals.css'
 import TanstackQueryProvider from '@/providers/tanstack-query-provider'
 import { ThemeProvider } from '@/providers/theme-provider'
 import { ToasterWithTheme } from '@/components/ToasterWithTheme'
+import Navbar from '@/components/Navbar'
 
 const playfairDisplay = Playfair_Display({
     variable: '--font-playfair-display-serif',
@@ -47,8 +42,13 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <TanstackQueryProvider>{children}</TanstackQueryProvider>
-                    <ToasterWithTheme />
+                    <Navbar />
+                    <div className="relative">
+                        <TanstackQueryProvider>
+                            {children}
+                        </TanstackQueryProvider>
+                        <ToasterWithTheme />
+                    </div>
                 </ThemeProvider>
             </body>
         </html>
