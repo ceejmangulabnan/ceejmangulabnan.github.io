@@ -1,5 +1,6 @@
 import ContactSection from '@/components/ContactSection'
 import ExperienceEducationSection from '@/components/ExperienceEducationSection'
+import Footer from '@/components/Footer'
 import HeroSection from '@/components/HeroSection'
 import ProjectsSection from '@/components/ProjectsSection'
 import TechStackSection from '@/components/TechStackSection'
@@ -12,6 +13,7 @@ export default function Home() {
             <ExperienceEducationSection />
             <ProjectsSection />
             <ContactSection />
+            <Footer />
         </div>
     )
 }
