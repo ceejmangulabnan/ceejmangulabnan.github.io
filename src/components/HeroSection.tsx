@@ -33,7 +33,7 @@ const HeroSection = () => {
     return (
         <ScrollReveal>
             <section
-                id="#hero-section"
+                id="home"
                 className="flex flex-col gap-2 sm:gap-1 font-sans rounded-sm bg-soft-cream text-blue dark:text-soft-blue dark:bg-navy-soft p-4 sm:p-6 shadow-md dark:shadow-none dark:border-2"
             >
                 <div className="flex-1 flex gap-8">
