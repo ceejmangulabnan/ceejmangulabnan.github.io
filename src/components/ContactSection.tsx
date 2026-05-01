@@ -46,7 +46,7 @@ const ContactSection = () => {
     }
 
     return (
-        <section id="#contact-section" className="py-10 w-full">
+        <section id="contact" className="py-10 w-full scroll-mt-20">
             <ScrollReveal>
                 <h2 className="mb-6 font-mono text-blue dark:text-sky font-bold text-base sm:text-lg md:text-xl">
                     // get in touch

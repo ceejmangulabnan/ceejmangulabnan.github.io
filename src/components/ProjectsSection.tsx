@@ -2,7 +2,6 @@
 
 import { ExternalLink, Github } from 'lucide-react'
 import { Button } from './ui/button'
-import useRepo from '@/hooks/use-repo'
 import { ScrollReveal, StaggerItem } from './ScrollReveal'
 
 interface Project {
@@ -17,9 +16,6 @@ interface Project {
 }
 
 const ProjectsSection = () => {
-    const { repoData } = useRepo()
-    console.log(repoData)
-
     const projects: Project[] = [
         {
             title: 'watchqueue',
@@ -31,37 +27,19 @@ const ProjectsSection = () => {
             image: 'bg-gradient-to-br from-blue to-blue-strong',
         },
         {
-            title: 'SNC Tabulation System',
+            title: 'SNC Pageant Tabulation System',
             description:
                 'A web-based tabulation system developed for my college, designed to streamline scoring, ranking, and result computation for school events.',
             tags: ['Nuxt', 'Vuetify', 'Strapi', 'PostgreSQL'],
             status: 'Active',
-            link: '#',
-            github: '#',
+            link: 'https://snc-tabulation.vercel.app/',
+            github: 'https://github.com/ceejmangulabnan/tabulation-fe',
             image: 'bg-gradient-to-br from-sky to-blue',
         },
-        // {
-        //     title: '',
-        //     description: 'Beautiful visualization with forecasts and maps',
-        //     tags: ['React', 'D3.js', 'API'],
-        //     status: 'Live',
-        //     link: '#',
-        //     github: '#',
-        //     image: 'bg-gradient-to-br from-soft-blue to-sky',
-        // },
-        // {
-        //     title: 'Game Stats Tracker',
-        //     description: 'Track gaming achievements with detailed analytics',
-        //     tags: ['Python', 'MongoDB', 'Chart.js'],
-        //     status: 'Beta',
-        //     link: '#',
-        //     github: '#',
-        //     image: 'bg-gradient-to-br from-blue-strong to-navy',
-        // },
     ]
 
     return (
-        <section className="py-10 w-full">
+        <section id="projects" className="py-10 w-full scroll-mt-20">
             <ScrollReveal>
                 <h2 className="mb-6 font-mono text-blue dark:text-sky font-bold text-base sm:text-lg md:text-xl">
                     {'// projects'}

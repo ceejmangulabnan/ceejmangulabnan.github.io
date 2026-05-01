@@ -7,6 +7,16 @@ import { MdEmail } from 'react-icons/md'
 import { useTheme } from 'next-themes'
 import { useState, useEffect } from 'react'
 import { ScrollReveal } from './ScrollReveal'
+import {
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from './ui/dialog'
 
 const HeroSection = () => {
     const { theme } = useTheme()
@@ -86,20 +96,64 @@ const HeroSection = () => {
 
                 <div className="flex flex-col sm:flex-row font-sans gap-2 sm:gap-4">
                     <ScrollReveal delay={500}>
-                        <Button
-                            size={'lg'}
-                            className="bg-soft-cream text-blue dark:bg-navy dark:text-cream dark:inset-ring-0 inset-ring-1 ring-blue-strong hover:bg-blue hover:text-cream text-xs sm:text-sm"
-                        >
-                            SEE MY WORK
-                        </Button>
+                        <a href="#projects">
+                            <Button
+                                size={'lg'}
+                                className="bg-soft-cream text-blue dark:bg-navy dark:text-cream dark:inset-ring-0 inset-ring-1 ring-blue-strong hover:bg-blue hover:text-cream text-xs sm:text-sm"
+                            >
+                                SEE MY WORK
+                            </Button>
+                        </a>
                     </ScrollReveal>
                     <ScrollReveal delay={550}>
-                        <Button
-                            size={'lg'}
-                            className="bg-blue text-cream dark:bg-soft-blue dark:text-navy-soft inset-ring-1 dark:inset-ring-0 ring-blue hover:bg-blue-strong text-xs sm:text-sm"
-                        >
-                            WORK WITH ME
-                        </Button>
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <Button
+                                    size={'lg'}
+                                    className="bg-blue text-cream dark:bg-soft-blue dark:text-navy-soft inset-ring-1 dark:inset-ring-0 ring-blue hover:bg-blue-strong text-xs sm:text-sm"
+                                >
+                                    WORK WITH ME
+                                </Button>
+                            </DialogTrigger>
+                            <DialogContent className="bg-soft-cream dark:bg-navy-soft border-blue-strong dark:border-soft-blue text-blue dark:text-soft-blue lg:min-w-5xl">
+                                <DialogHeader>
+                                    <DialogTitle className="text-blue-strong dark:text-soft-blue">
+                                        Work With Me
+                                    </DialogTitle>
+                                    <DialogDescription className="text-blue dark:text-sky">
+                                        Here's my resume. Let's collaborate on
+                                        your next project!
+                                    </DialogDescription>
+                                </DialogHeader>
+
+                                <embed
+                                    src="Mangulabnan-Cheljee_Full-stack-Developer_Resume.pdf"
+                                    type="application/pdf"
+                                    width="100%"
+                                    height="600px"
+                                    className="rounded-md"
+                                />
+
+                                <DialogFooter className="mt-4 gap-2">
+                                    <DialogClose asChild>
+                                        <Button
+                                            variant="outline"
+                                            className="border-blue-strong dark:border-soft-blue text-blue dark:text-soft-blue hover:bg-blue hover:text-cream dark:hover:bg-soft-blue dark:hover:text-navy-soft"
+                                        >
+                                            Close
+                                        </Button>
+                                    </DialogClose>
+                                    <a
+                                        href="Mangulabnan-Cheljee_Full-stack-Developer_Resume.pdf"
+                                        download="Mangulabnan-Cheljee_Full-stack-Developer_Resume.pdf"
+                                    >
+                                        <Button className="bg-blue text-cream dark:bg-soft-blue dark:text-navy-soft hover:bg-blue-strong dark:hover:bg-sky">
+                                            Download
+                                        </Button>
+                                    </a>
+                                </DialogFooter>
+                            </DialogContent>
+                        </Dialog>
                     </ScrollReveal>
                 </div>
             </section>

@@ -8,7 +8,7 @@ const ExperienceEducationSection = () => {
 
     return (
         <ScrollReveal className="w-full">
-            <section className="py-10 w-full">
+            <section id="about" className="py-10 w-full scroll-mt-20">
                 <h2 className="mb-4 font-mono text-blue dark:text-sky font-bold text-base sm:text-lg md:text-xl">
                     // experience
                 </h2>
